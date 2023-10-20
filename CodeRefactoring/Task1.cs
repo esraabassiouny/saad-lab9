@@ -8,9 +8,8 @@ namespace CodeRefactoring
     /// account gets locked.
     /// This task covers:
     /// 1. Introduce Explaining Variable
-    /// 2. Split Temporary Variable
-    /// 3. Replace With Constant
-    /// 4. Replace Conditional With Guard Clause
+    /// 2. Replace With Constant
+    /// 3. Replace Conditional With Guard Clause
     /// </summary>
     public class Task1
     {
