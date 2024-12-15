@@ -1,1 +1,14 @@
-
+name : Github Actions Demo
+on : [push,pull-request]
+jobs:
+  Explore Github Actions:
+  runs-on : ubuntu-latest
+  - name: Display operating system  
+  run: echo "The runner in ${{runner.os}}."
+    - name: Display triggering event
+  run: echo "The runner in ${{github.event_name}}."
+    - name: checkout repo 
+  uses: actions/checkout@v4
+    - name: List files in the repository
+  run: ls ${{githib.workspace}}
+  
