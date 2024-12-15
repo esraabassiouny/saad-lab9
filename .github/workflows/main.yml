@@ -3,6 +3,7 @@ on : [push,pull-request]
 jobs:
   Explore Github Actions:
   runs-on : ubuntu-latest
+  steps:
   - name: Display operating system  
   run: echo "The runner in ${{runner.os}}."
     - name: Display triggering event
