@@ -2,6 +2,7 @@
 
 namespace CodeRefactoring
 {
+    
     /// <summary>
     /// In this example, you have a simple login system that allows a maximum of three login attempts.
     /// If the user enters an incorrect password, they have two remaining attempts before the 
@@ -13,37 +14,34 @@ namespace CodeRefactoring
     /// </summary>
     public class Task1
     {
+        const int MAX_ATTEMPS = 3;
         public int CurrentAttempt { get; private set; } = 0;
         public bool IsLockedOut { get; private set; }
 
         public bool Login(string password)
         {
-            if (!IsLockedOut)
-            {
+            if (IsLockedOut)
+                return false;
+
                 if (password == "password123")
                 {
                     Console.WriteLine("Login successful!");
                     return true;
                 }
+                CurrentAttempt++;
+                bool NOT_MaxAttemps = MAX_ATTEMPS - CurrentAttempt > 0;
+                // check the remaining attempts
+                if (NOT_MaxAttemps)
+                {
+                    //print the remaining attempts
+                    Console.WriteLine("Invalid password. Remaining attempts: " + (MAX_ATTEMPS - CurrentAttempt));
+                }
                 else
                 {
-                    CurrentAttempt++;
-
-                    // check the remaining attempts
-                    if (3 - CurrentAttempt > 0)
-                    {
-                        //print the remaining attempts
-                        Console.WriteLine("Invalid password. Remaining attempts: " + (3 - CurrentAttempt));
-                    }
-                    else
-                    {
-                        IsLockedOut = true;
-                        Console.WriteLine("Invalid password. Account locked.");
-                    }
-                    return false;
+                    IsLockedOut = true;
+                    Console.WriteLine("Invalid password. Account locked.");
                 }
-            }
-            return false;
+                return false;
         }
     }
 }
