@@ -9,6 +9,8 @@ namespace CodeRefactoring
         /// </summary>
         public static int Fibonacci(int n)
         {
+            if(n <= 0)
+                throw new ArgumentException("Input must be positive ",nameof(n));
             if (n <= 2)
             {
                 return 1;
@@ -24,7 +26,7 @@ namespace CodeRefactoring
                 current = next;
             }
 
-            return prev;
+            return current;
         }
     }
 }
