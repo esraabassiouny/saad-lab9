@@ -2,14 +2,15 @@ name : Github Actions Demo
 on : push
 jobs:
   Explore-Github-Actions:
-    runs-on : ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Display operating system  
-      run: echo "The runner in ${{runner.os}}."
+       run: echo "The runner in ${{runner.os}}."
       - name: Display triggering event
-      run: echo "The runner in ${{github.event_name}}."
+       run: echo "The runner in ${{github.event_name}}."
       - name: checkout repo 
-      uses: actions/checkout@v4
+       uses: actions/checkout@v4
+      - run: echo " Cloning The ${{ github.repository }} repository "
       - name: List files in the repository
-      run: ls ${{githib.workspace}}
+       run: ls ${{githib.workspace}}
   
